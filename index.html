@@ -1,14 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fun Learning Games</title>
+  <style>
+    body {
+      background: #0f172a;
+      color: white;
+      font-family: Arial;
+      text-align: center;
+    }
 
-New Games!
+    h1 {
+      margin: 20px;
+    }
 
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
 
-Unblocked Games
-Home
-Game Requests
-Movies
-Games
-Unblocked Games
+    .game {
+      background: #1e293b;
+      padding: 10px;
+      border-radius: 10px;
+    }
 
-If Game Does Not Let You Full Screen Try Zooming In Screen!
+    iframe {
+      width: 100%;
+      height: 200px;
+      border-radius: 8px;
+    }
 
+    .play-btn {
+      margin-top: 10px;
+      padding: 10px;
+      background: #22c55e;
+      border: none;
+      width: 100%;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
 
+    .play-btn:hover {
+      background: #16a34a;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>🎮 Fun Games Hub</h1>
+
+<div class="grid">
+
+  <!-- Baseball Bros -->
+  <div class="game">
+    <h3>Baseball Bros</h3>
+    <iframe src="PASTE_BASEBALL_LINK"></iframe>
+    <button class="play-btn">Play</button>
+  </div>
+
+  <!-- BitLife -->
+  <div class="game">
+    <h3>BitLife</h3>
+    <iframe src="PASTE_BITLIFE_LINK"></iframe>
+    <button class="play-btn">Play</button>
+  </div>
+
+  <!-- Add more games -->
+  <div class="game">
+    <h3>Game 3</h3>
+    <iframe src="PASTE_LINK"></iframe>
+    <button class="play-btn">Play</button>
+  </div>
+
+</div>
+
+</body>
+</html>
