@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BitLife</title>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: black;
+    }
+
+    #topbar {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      background: #1e293b;
+      color: white;
+      padding: 8px;
+      text-align: center;
+      z-index: 10;
+    }
+
+    #back {
+      position: absolute;
+      left: 10px;
+      top: 5px;
+      background: #334155;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    #gameContainer {
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/TemplateData/UnityProgress.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/Build/UnityLoader.js"></script>
+
+</head>
+
+<body>
+
+<div id="topbar">
+  <button id="back" onclick="location.href='games.html'">⬅ Back</button>
+  🎮 BitLife
+</div>
+
+<div id="gameContainer"></div>
+
+<script>
+  UnityLoader.instantiate(
+    "gameContainer",
+    "https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/Build/BitLife.json"
+  );
+</script>
+
+</body>
+</html>
