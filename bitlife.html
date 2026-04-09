@@ -4,40 +4,59 @@
   <title>BitLife</title>
 
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
       overflow: hidden;
+      height: 100%;
       background: black;
     }
 
+    /* TOP BAR */
     #topbar {
       position: absolute;
       top: 0;
+      left: 0;
       width: 100%;
+      height: 50px;
       background: #1e293b;
       color: white;
-      padding: 8px;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial;
       z-index: 10;
     }
 
+    /* BACK BUTTON */
     #back {
       position: absolute;
       left: 10px;
-      top: 5px;
       background: #334155;
       color: white;
       border: none;
-      padding: 5px 10px;
+      padding: 8px 15px;
+      border-radius: 8px;
       cursor: pointer;
     }
 
+    /* GAME AREA (AUTO SCALE FIX) */
     #gameContainer {
-      width: 100vw;
-      height: 100vh;
+      position: absolute;
+      top: 50px;   /* below topbar */
+      left: 0;
+      width: 100%;
+      height: calc(100% - 50px);
+      overflow: hidden;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: 100% !important;
     }
   </style>
 
+  <!-- UNITY FILES -->
   <script src="https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/TemplateData/UnityProgress.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/Build/UnityLoader.js"></script>
 
@@ -45,19 +64,22 @@
 
 <body>
 
-<div id="topbar">
-  <button id="back" onclick="location.href='games.html'">⬅ Back</button>
-  🎮 BitLife
-</div>
+  <!-- TOP BAR -->
+  <div id="topbar">
+    <button id="back" onclick="location.href='games.html'">⬅ Back</button>
+    🎮 BitLife
+  </div>
 
-<div id="gameContainer"></div>
+  <!-- GAME -->
+  <div id="gameContainer"></div>
 
-<script>
-  UnityLoader.instantiate(
-    "gameContainer",
-    "https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/Build/BitLife.json"
-  );
-</script>
+  <script>
+    var gameInstance = UnityLoader.instantiate(
+      "gameContainer",
+      "https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/Build/BitLife.json",
+      { onProgress: UnityProgress }
+    );
+  </script>
 
 </body>
 </html>
