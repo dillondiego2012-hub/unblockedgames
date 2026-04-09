@@ -1,35 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Unblocked Games</title>
+  <title>Unblocked Hub</title>
+
   <style>
     body {
       margin: 0;
       font-family: Arial;
       background: #0f172a;
       color: white;
-      text-align: center;
-    }
 
-    header {
-      padding: 40px;
+      /* centers everything */
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
 
     h1 {
       font-size: 40px;
+      margin-bottom: 10px;
     }
 
-    .buttons {
-      margin-top: 40px;
+    p {
+      margin-bottom: 30px;
+      color: #cbd5e1;
+    }
+
+    /* horizontal button row */
+    .button-row {
+      display: flex;
+      gap: 20px;
     }
 
     .btn {
-      display: block;
-      margin: 20px auto;
-      padding: 20px;
-      width: 250px;
-      font-size: 20px;
-      border-radius: 10px;
+      padding: 20px 40px;
+      font-size: 18px;
+      border-radius: 12px;
       border: none;
       cursor: pointer;
       background: #1e293b;
@@ -39,28 +47,28 @@
 
     .btn:hover {
       background: #334155;
+      transform: scale(1.05);
     }
   </style>
+
 </head>
 
 <body>
 
-<header>
   <h1>🎮 Unblocked Hub</h1>
   <p>Choose where you want to go</p>
-</header>
 
-<div class="buttons">
+  <div class="button-row">
 
-  <button class="btn" onclick="location.href='games.html'">
-    🎮 Games
-  </button>
+    <button class="btn" onclick="location.href='games.html'">
+      🎮 Games
+    </button>
 
-  <button class="btn" onclick="location.href='movies.html'">
-    🎬 Movies
-  </button>
+    <button class="btn" onclick="location.href='movies.html'">
+      🎬 Movies
+    </button>
 
-</div>
+  </div>
 
 </body>
 </html>
