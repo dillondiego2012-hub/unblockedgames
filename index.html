@@ -10,29 +10,26 @@
       background: #0f172a;
       color: white;
       text-align: center;
+
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
-    /* BIG TITLE */
+    /* TITLE */
     h1 {
       font-size: 60px;
-      margin-top: 40px;
       margin-bottom: 10px;
     }
 
-    /* CLOCK */
+    /* BIG CLOCK */
     #clock {
-      font-size: 28px;
-      margin-bottom: 30px;
+      font-size: 48px;   /* 👈 BIGGER CLOCK */
+      font-weight: bold;
       color: #38bdf8;
-    }
-
-    /* CENTER CONTENT */
-    .container {
-      height: 60vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+      margin-bottom: 40px;
     }
 
     /* BUTTON ROW */
@@ -56,7 +53,6 @@
       background: #334155;
       transform: scale(1.08);
     }
-
   </style>
 </head>
 
@@ -65,22 +61,20 @@
   <!-- TITLE -->
   <h1>🎮 Unblocked Games</h1>
 
-  <!-- CLOCK -->
+  <!-- BIG CLOCK (ABOVE BUTTONS) -->
   <div id="clock"></div>
 
   <!-- BUTTONS -->
-  <div class="container">
-    <div class="button-row">
+  <div class="button-row">
 
-      <button class="btn" onclick="location.href='games.html'">
-        🎮 Games
-      </button>
+    <button class="btn" onclick="location.href='games.html'">
+      🎮 Games
+    </button>
 
-      <button class="btn" onclick="location.href='movies.html'">
-        🎬 Movies
-      </button>
+    <button class="btn" onclick="location.href='movies.html'">
+      🎬 Movies
+    </button>
 
-    </div>
   </div>
 
   <!-- CLOCK SCRIPT -->
@@ -92,12 +86,13 @@
       let minutes = now.getMinutes();
       let seconds = now.getSeconds();
 
-      let ampm = hours >= 12 ? 'PM' : 'AM';
+      let ampm = hours >= 12 ? "PM" : "AM";
+
       hours = hours % 12;
       hours = hours ? hours : 12;
 
-      minutes = minutes < 10 ? '0' + minutes : minutes;
-      seconds = seconds < 10 ? '0' + seconds : seconds;
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
 
       document.getElementById("clock").innerText =
         hours + ":" + minutes + ":" + seconds + " " + ampm;
