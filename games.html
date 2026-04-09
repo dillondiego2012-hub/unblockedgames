@@ -25,17 +25,16 @@
       padding: 30px;
     }
 
-    /* SMALL BUTTON STYLE */
     .game-btn {
-      padding: 12px 20px;
+      padding: 12px 18px;
       font-size: 16px;
       border-radius: 10px;
       border: none;
       cursor: pointer;
       background: #1e293b;
       color: white;
+      min-width: 160px;
       transition: 0.2s;
-      min-width: 180px;
     }
 
     .game-btn:hover {
@@ -43,15 +42,6 @@
       transform: scale(1.05);
     }
 
-    .back {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: #334155;
-      border: none;
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
-    }
   </style>
 </head>
 
@@ -59,25 +49,34 @@
 
 <h1>🎮 Games</h1>
 
-<button class="back" onclick="location.href='index.html'">⬅ Home</button>
-
 <div class="container">
 
-  <!-- GAMES LIST -->
-  <button class="game-btn" onclick="window.open('PASTE_BASEBALL_LINK')">
-    Baseball Bros
-  </button>
+  <!-- YOUR GAMES -->
 
-  <button class="game-btn" onclick="window.open('PASTE_BITLIFE_LINK')">
+  <button class="game-btn" onclick="location.href='bitlife.html'">
     BitLife
   </button>
 
-  <button class="game-btn" onclick="window.open('PASTE_GAME3_LINK')">
+  <button class="game-btn" onclick="location.href='baseball.html'">
+    Baseball Bros
+  </button>
+
+  <!-- EXTRA SLOTS (ADD MORE LATER) -->
+
+  <button class="game-btn" onclick="location.href='game3.html'">
     Game 3
   </button>
 
-  <button class="game-btn" onclick="window.open('PASTE_GAME4_LINK')">
+  <button class="game-btn" onclick="location.href='game4.html'">
     Game 4
+  </button>
+
+  <button class="game-btn" onclick="location.href='game5.html'">
+    Game 5
+  </button>
+
+  <button class="game-btn" onclick="location.href='game6.html'">
+    Game 6
   </button>
 
 </div>
