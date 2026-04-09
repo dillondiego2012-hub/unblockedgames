@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Unblocked Hub</title>
+  <title>Unblocked Games</title>
 
   <style>
     body {
@@ -9,34 +9,41 @@
       font-family: Arial;
       background: #0f172a;
       color: white;
+      text-align: center;
+    }
 
-      /* centers everything */
-      height: 100vh;
+    /* BIG TITLE */
+    h1 {
+      font-size: 60px;
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+
+    /* CLOCK */
+    #clock {
+      font-size: 28px;
+      margin-bottom: 30px;
+      color: #38bdf8;
+    }
+
+    /* CENTER CONTENT */
+    .container {
+      height: 60vh;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
     }
 
-    h1 {
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      margin-bottom: 30px;
-      color: #cbd5e1;
-    }
-
-    /* horizontal button row */
+    /* BUTTON ROW */
     .button-row {
       display: flex;
-      gap: 20px;
+      gap: 25px;
     }
 
     .btn {
-      padding: 20px 40px;
-      font-size: 18px;
+      padding: 20px 50px;
+      font-size: 20px;
       border-radius: 12px;
       border: none;
       cursor: pointer;
@@ -47,28 +54,58 @@
 
     .btn:hover {
       background: #334155;
-      transform: scale(1.05);
+      transform: scale(1.08);
     }
-  </style>
 
+  </style>
 </head>
 
 <body>
 
-  <h1>🎮 Unblocked Hub</h1>
-  <p>Choose where you want to go</p>
+  <!-- TITLE -->
+  <h1>🎮 Unblocked Games</h1>
 
-  <div class="button-row">
+  <!-- CLOCK -->
+  <div id="clock"></div>
 
-    <button class="btn" onclick="location.href='games.html'">
-      🎮 Games
-    </button>
+  <!-- BUTTONS -->
+  <div class="container">
+    <div class="button-row">
 
-    <button class="btn" onclick="location.href='movies.html'">
-      🎬 Movies
-    </button>
+      <button class="btn" onclick="location.href='games.html'">
+        🎮 Games
+      </button>
 
+      <button class="btn" onclick="location.href='movies.html'">
+        🎬 Movies
+      </button>
+
+    </div>
   </div>
+
+  <!-- CLOCK SCRIPT -->
+  <script>
+    function updateClock() {
+      let now = new Date();
+
+      let hours = now.getHours();
+      let minutes = now.getMinutes();
+      let seconds = now.getSeconds();
+
+      let ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12;
+      hours = hours ? hours : 12;
+
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+
+      document.getElementById("clock").innerText =
+        hours + ":" + minutes + ":" + seconds + " " + ampm;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
 
 </body>
 </html>
