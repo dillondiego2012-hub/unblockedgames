@@ -1,92 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>BitLife</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Embed</title>
 
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: black;
-    }
+<style>
+/* Page setup */
+body {
+  margin: 0;
+  background: #111;
+  font-family: Arial, sans-serif;
+}
 
-    /* TOP BAR */
-    #topbar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 50px;
-      background: #1e293b;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-      font-family: Arial;
-    }
+/* Wrapper keeps everything centered */
+.game-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    #back {
-      position: absolute;
-      left: 10px;
-      background: #334155;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
+/* This is the IMPORTANT part */
+.game-container {
+  width: 100%;
+  max-width: 1100px;   /* controls max size so it doesn't zoom huge */
+  height: 90vh;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
 
-    /* CENTER WRAPPER (KEY FIX) */
-    #wrapper {
-      position: absolute;
-      top: 50px;
-      left: 0;
-      right: 0;
-      bottom: 0;
+/* Forces iframe to scale correctly */
+.game-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: black;
-    }
-
-    /* FIXED ASPECT RATIO BOX */
-    #gameContainer {
-      width: 90vw;
-      height: 90vh;
-      max-width: 1200px;
-      max-height: 700px;
-
-      aspect-ratio: 16 / 9;
-    }
-  </style>
-
-  <script src="https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/TemplateData/UnityProgress.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/Build/UnityLoader.js"></script>
+  /* fixes zoom issues in many embeds */
+  transform: scale(1);
+  transform-origin: top left;
+}
+</style>
 </head>
 
 <body>
 
-  <div id="topbar">
-    <button id="back" onclick="location.href='games.html'">⬅ Back</button>
-    🎮 BitLife
+<div class="game-wrapper">
+  <div class="game-container">
+    <iframe 
+      src="YOUR_GAME_URL_HERE"
+      allowfullscreen>
+    </iframe>
   </div>
-
-  <div id="wrapper">
-    <div id="gameContainer"></div>
-  </div>
-
-  <script>
-    UnityLoader.instantiate(
-      "gameContainer",
-      "https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/Build/BitLife.json"
-    );
-  </script>
+</div>
 
 </body>
 </html>
