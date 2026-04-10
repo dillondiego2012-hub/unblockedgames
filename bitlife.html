@@ -1,60 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Game Embed</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>BitLife - Life Simulator</title>
 
 <style>
-/* Page setup */
-body {
+html, body {
   margin: 0;
-  background: #111;
-  font-family: Arial, sans-serif;
-}
-
-/* Wrapper keeps everything centered */
-.game-wrapper {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* This is the IMPORTANT part */
-.game-container {
-  width: 100%;
-  max-width: 1100px;   /* controls max size so it doesn't zoom huge */
-  height: 90vh;
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-/* Forces iframe to scale correctly */
-.game-container iframe {
+  padding: 0;
   width: 100%;
   height: 100%;
-  border: none;
+  overflow: hidden;
+  background: #333;
+}
 
-  /* fixes zoom issues in many embeds */
-  transform: scale(1);
-  transform-origin: top left;
+/* FIX: proper Unity container */
+.webgl-content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* FIX: game container must fill screen */
+#gameContainer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+/* FIX: canvas scaling issue */
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* REMOVE broken vh rule (THIS WAS YOUR ZOOM BUG)
+body,html{width:62vh} ❌ DELETE THIS COMPLETELY
+*/
+
+/* top bar fix */
+#listLink {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  background: rgb(119, 119, 255);
+  opacity: 0.8;
 }
 </style>
+
+<script src="https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/TemplateData/UnityProgress.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/Build/UnityLoader.js"></script>
+
+<script>
+var unityInstance = UnityLoader.instantiate(
+  "gameContainer",
+  "https://cdn.jsdelivr.net/gh/a456pur/seraph@ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7/games/bitlife/Build/BitLife.json",
+  { onProgress: UnityProgress }
+);
+</script>
+
 </head>
 
 <body>
 
-<div class="game-wrapper">
-  <div class="game-container">
-    <iframe 
-      src="YOUR_GAME_URL_HERE"
-      allowfullscreen>
-    </iframe>
-  </div>
+<div id="listLink">
+  <ul style="color:#fff; padding:0; margin:0; font-size:20px;">
+    <li style="display:inline-block; float:left; padding:5px;">
+      <a href="#" style="color:#fff; text-decoration:none;">Bitlife</a>
+    </li>
+    <li style="display:inline-block; float:right; padding:5px;">
+      <a onclick="return closeBacklinks();" style="color:#fff; text-decoration:none;">❌</a>
+    </li>
+  </ul>
 </div>
+
+<div class="webgl-content">
+  <div id="gameContainer"></div>
+</div>
+
+<script>
+function closeBacklinks(){
+  document.querySelector('#listLink').style.display = "none";
+}
+</script>
 
 </body>
 </html>
