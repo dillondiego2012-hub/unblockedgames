@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<base href="https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@ae6706e5224c55594c491edfc7f5ad541e2ea02b/baseball%20bros/">
+
+<head>
+<meta charset="utf-8">
+<title>Baseball Bros</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="./BaseballBros.js"></script>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  overflow: hidden;
+}
+
+/* TOP BAR */
+#topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: #1e293b;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial;
+  z-index: 10;
+}
+
+#back {
+  position: absolute;
+  left: 10px;
+  background: #334155;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* GAME AREA */
+#gameWrapper {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 50px);
+}
+
+#openfl-content {
+  width: 100%;
+  height: 100%;
+}
+</style>
+</head>
+
+<body>
+
+<div id="topbar">
+  <button id="back" onclick="location.href='games.html'">⬅ Back</button>
+  ⚾ Baseball Bros
+</div>
+
+<div id="gameWrapper">
+  <div id="openfl-content"></div>
+</div>
+
+<script>
+lime.embed("BaseballBros", "openfl-content", 0, 0, {});
+</script>
+
+</body>
+</html>
